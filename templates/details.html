@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Details</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  .details-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0,0.1);
+    margin-bottom: 20px;
+  }
+  .details-container label{
+      min-width:200px;
+      display:inline-block;
+      color: #777;
+      text-align:left;
+  }
+  .details-container span{
+    min-width:200px;
+    display:inline-block;
+  }
+
+  .details-container h2 {
+    margin-bottom: 10px;
+    color: #555;
+    text-align: center;
+  }
+
+  .details-container p {
+    margin: 5px 0;
+    color: #777;
+  }
+  button{
+    text-align:center;
+    margin:  auto;
+    display:block;
+  }
+  
+  
+
+  </style>
+</head>
+<body>
+  <h1>User Details</h1>
+
+  <div class="details-container">
+    <h2>Personal Information</h2>
+    <p><span>Name</span>:{{result[0]['name']}}</p>
+    <p><span>Age</span>:{{result[0]['age']}}</p>
+    <p><span>location</span>:{{result[0]['location']}}</p>
+  </div>
+
+  <div class="details-container">
+    <h2>Contact Information</h2>
+    <p><span>Email</span>:{{result[0]['contact']}}</p>
+    <p><span>Phone</span>:{{result[0]['phone']}}</p>
+  </div>
+
+  <form action="/submit-details" method="post">
+    <div class="details-container">
+      <h2>Submit User Details</h2>
+      <div class="wrapping"><label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      </div>
+      <div class="wrapping"><label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+      </div>
+      <div class="wrapping"><label for="location">Location:</label>
+      <input type="text" id="location" name="location" required>
+    </div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</body>
+</html>

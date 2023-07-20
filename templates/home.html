@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            homepage
+        </title>
+        <style>
+            tr,th,td,table{
+                border: 1px  solid black;
+                border-radius: 10px;
+                border-collapse: collapse; 
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>email</th>
+                <th>age</th>
+                <th>order amount</th>
+            </tr>
+            <tr>
+                <td>{{result[0]['id']}}</td>
+                <td>{{result[0]['name']}}</td>
+                <td>{{result[0]['contact']}}</td>
+                <td>{{result[0]['age']}}</td>
+                <td>{{result[0]['amount']}}</td>
+            </tr>
+            <tr>
+                <td>{{result[1]['id']}}</td>
+                <td>{{result[1]['name']}}</td>
+                <td>{{result[1]['contact']}}</td>
+                <td>{{result[1]['age']}}</td>
+                <td>{{result[1]['amount']}}</td>
+            </tr>
+            <tr>
+                <td>{{result[2]['id']}}</td>
+                <td>{{result[2]['name']}}</td>
+                <td>{{result[2]['contact']}}</td>
+                <td>{{result[2]['age']}}</td>
+                <td>{{result[2]['amount']}}</td>
+            </tr>
+    </body>
+</html>
