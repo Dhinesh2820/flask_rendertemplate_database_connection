@@ -160,3 +160,20 @@ def Imagedetails():
         })
     # return jsonify(result)
     return render_template('image.html',result=result)
+
+@join_routes.route('/registered_users', methods=['GET'])
+def get_registered_users():
+    subquery = db.session.query(User.id).filter(User.registration_status == 1).subquery()
+
+    query = db.session.query(User).filter(User.id.in_(subquery))
+
+    result = []
+    for user in query:
+        result.append({
+            'id': user.id,
+            'username': user.username,
+            'email': user.email,
+            'registration_status': user.registration_status
+        })
+
+    return jsonify(result)

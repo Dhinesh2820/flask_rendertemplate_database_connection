@@ -14,7 +14,7 @@ class User(db.Model):
     phone=db.Column(db.String(500))
     address=db.Column(db.String(500))
     data=db.Column(db.LargeBinary)
-
+    registration_status = db.Column(db.Boolean, default=False)
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
