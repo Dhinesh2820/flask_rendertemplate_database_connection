@@ -10,6 +10,8 @@ def get_users_orders():
     # Convert the join query results to a list of dictionaries
     result = []
     for User_row,Order_row in query:
+        binary_data =User_row.data
+        base64_image =base64.b64encode(binary_data).decode('utf-8')
         results={
             'name': User_row.username,
             'contact': User_row.email,
@@ -17,8 +19,8 @@ def get_users_orders():
             'amount': Order_row.amount,
             'id':User_row.id,
             'location':User_row.location,
-            'phone':User_row.phone
-            
+            'phone':User_row.phone,
+            'image':base64_image 
         }
         result.append(results)
         

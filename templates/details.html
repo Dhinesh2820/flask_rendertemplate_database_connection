@@ -50,9 +50,10 @@
     margin:  auto;
     display:block;
   }
-  
-  
-
+  img {
+    width: 100px;
+    height: 100px;
+}
   </style>
 </head>
 <body>
@@ -69,6 +70,7 @@
     <h2>Contact Information</h2>
     <p><span>Email</span>:{{result[0]['contact']}}</p>
     <p><span>Phone</span>:{{result[0]['phone']}}</p>
+    <p><span>Photo</span>:<img src="data:image/png;base64,{{ result[0]['image'] }}"></p>
   </div>
 
   <form action="/submit-details" method="post">
