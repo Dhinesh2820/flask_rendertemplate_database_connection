@@ -31,13 +31,16 @@ def get_users():
     users = db.session.query(User,Order).all()
     result = []
     for user1,Order_row in users:
+        binary_data =user1.data
+        base64_image =base64.b64encode(binary_data).decode('utf-8')
         result.append({
             'name': user1.username,
             'contact':user1.email,
             'id':user1.id,
             # 'user_id':Order_row.user_id,
             'amount':Order_row.amount,
-            'age':user1.age
+            'age':user1.age,
+            'image':base64_image
         })
     # return jsonify(result)
     return render_template('index.html',result=result)

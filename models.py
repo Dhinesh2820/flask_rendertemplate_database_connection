@@ -13,6 +13,7 @@ class User(db.Model):
     location=db.Column(db.String(255))
     phone=db.Column(db.String(500))
     address=db.Column(db.String(500))
+    data=db.Column(db.LargeBinary)
 
 
 class Order(db.Model):
