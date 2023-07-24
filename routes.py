@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify,request,render_template
 from models import User,Order,db,Image
-
+import base64
 join_routes = Blueprint('join', __name__)
 
 @join_routes.route('/users/orders', methods=['GET'])
@@ -146,10 +146,12 @@ def Imagedetails():
     query=db.session.query(Image).all()
     result=[]
     for image_row in query:
+        binary_data =image_row.data
+        base64_image =base64.b64encode(binary_data).decode('utf-8')
         result.append({
             'id':image_row.id,
             'name':image_row.name,
-            'image':image_row.data
+            'image':base64_image
         })
     # return jsonify(result)
     return render_template('image.html',result=result)
