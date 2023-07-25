@@ -3,3 +3,7 @@ tr,th,td,table{
     border-collapse: collapse;
     border-radius: 10px;
 }
+img {
+    width: 100px;
+    height: 100px;
+}
