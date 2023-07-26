@@ -3,7 +3,7 @@ from sqlalchemy import LargeBinary
 from flask_migrate import Migrate
 
 db = SQLAlchemy()
-migrate = Migrate(db)
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -15,11 +15,13 @@ class User(db.Model):
     address=db.Column(db.String(500))
     data=db.Column(db.LargeBinary)
     registration_status = db.Column(db.Boolean, default=False)
+    company = db.Column(db.String(255))
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     amount = db.Column(db.Float)
+    discount =db.Column(db.Integer)
     
     
 class Image(db.Model):
