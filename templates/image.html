@@ -7,6 +7,9 @@
             width:100px;
             height:100px;
         }
+        p{
+            display:flex;
+        }
     </style>
 </head>
 <body>
@@ -16,7 +19,7 @@
         <div>
             <h3>ID: {{ entry['id'] }}</h3>
             <p>Name: {{ entry['name'] }}</p>
-            <img src="data:image/png;base64,{{ entry['image'] }}" alt="{{ entry['name'] }}" />
+            <p>Photo:<img src="data:image/png;base64,{{ entry['image'] }}" alt="{{ entry['name'] }}" />
         </div>
     {% endfor %}
 </body>
