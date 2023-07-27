@@ -28,3 +28,4 @@ class Image(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(255))
     data=db.Column(db.LargeBinary)
+    order_id =db.Column(db.Integer,db.ForeignKey('order.id'),index=True)
