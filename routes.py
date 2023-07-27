@@ -169,11 +169,18 @@ def get_registered_users():
 
     result = []
     for user in query:
+        binary_data =user.data
+        base64_image =base64.b64encode(binary_data).decode('utf-8')
         result.append({
             'id': user.id,
             'username': user.username,
             'email': user.email,
-            'registration_status': user.registration_status
+            'registration_status': user.registration_status,
+            'image':base64_image,
+            'age':user.age,
+            'phone':user.phone,
+            'location':user.location
         })
 
-    return jsonify(result)
+    # return jsonify(result)
+    return render_template('website.html',result=result)
